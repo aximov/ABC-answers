@@ -41,7 +41,7 @@ int main(){
       }
       G[i].erase(G[i].begin() + j);
       G[tempV].erase(G[tempV].begin() + temp);
-      if(!dfs(i)) bridge++; 
+      if(!dfs(0)) bridge++; 
       G[i].insert(G[i].begin() + j, tempV);
       G[tempV].insert(G[tempV].begin() + temp, i);
     }
