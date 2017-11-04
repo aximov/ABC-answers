@@ -33,18 +33,21 @@ int main()
     k = 0;
     while(j < N)
     {
-      while(k < N)
-      {
-        if (C[k] < B[j]) ++k;
-        else {
-          count += N - k;
-          break;
+      if (B[j] < A[i]) ++j;
+      else{
+        while(k < N)
+        {
+          if (C[k] < B[j]) ++k;
+          else{
+            if(A[i] < B[j] && B[j] < C[k]) count += N - k;
+            break;
+          }
         }
+        ++j;
       }
-      ++j;
     }
   }
-
+  
   cout << count << endl;
   return 0;
 }
