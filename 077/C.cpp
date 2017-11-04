@@ -25,26 +25,14 @@ int main()
   sort(B.begin(), B.end());
   sort(B.begin(), B.end());
   
-  int i,j,k;
   int count = 0;
-  for(i = 0; i < N; ++i)
-  {
-    j = 0;
-    k = 0;
-    while(j < N)
-    {
-      if (B[j] < A[i]) ++j;
-      else{
-        while(k < N)
-        {
-          if (C[k] < B[j]) ++k;
-          else{
-            if(A[i] < B[j] && B[j] < C[k]) count += N - k;
-            break;
-          }
+  for(int i = 0; i < N; ++i) {
+    for(int j = 0; j < N; ++j) {
+      if(A[i] < B[j]) {
+        for(int k = 0; k < N; ++k) {
+          if(B[j] < C[k]) ++count;
         }
-        ++j;
-      }
+      } 
     }
   }
   
